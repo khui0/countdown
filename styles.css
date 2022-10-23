@@ -125,6 +125,10 @@ button:hover {
     width: min(100%, 600px);
 }
 
+.subtle {
+    opacity: 0.5;
+}
+
 body>div {
     display: none;
 }
