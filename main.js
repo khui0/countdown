@@ -7,6 +7,11 @@ document.querySelectorAll("input").forEach(input => {
     input.addEventListener("input", updateURL);
 });
 
+document.getElementById("icon").addEventListener("input", e => {
+    // Restrict to emojis
+    e.target.value = e.target.value.match(/\p{Extended_Pictographic}/u);
+})
+
 document.getElementById("copy").addEventListener("click", () => {
     navigator.clipboard.writeText(document.getElementById("output").value);
 });
