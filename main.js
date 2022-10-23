@@ -26,6 +26,7 @@ if (getParams()) {
             pluralize("minutes", time.minutes, true),
             pluralize("seconds", time.seconds, true)
         ];
+        timeStrings = timeStrings.filter(string => !string.startsWith("0"));
         if (!time.passed) {
             subtitle.textContent = `is in ${timeStrings.join(" ")}`;
         }
