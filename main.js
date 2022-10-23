@@ -3,6 +3,9 @@ const subtitle = document.querySelector("#countdown>h2");
 
 updateURL();
 
+// Set date input to today
+document.getElementById("date").value = new Date().toISOString().split("T")[0] + "T00:00";
+
 // Fullscreen on keypress
 document.addEventListener("keydown", e => {
     if (e.key.toLowerCase() == "f" && getParams()) {
