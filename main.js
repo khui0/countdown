@@ -3,6 +3,28 @@ const subtitle = document.querySelector("#countdown>h2");
 
 updateURL();
 
+// Fullscreen on keypress
+document.addEventListener("keydown", e => {
+    if (e.key.toLowerCase() == "f" && getParams()) {
+        if (!document.fullscreenElement) {
+            try {
+                document.documentElement.requestFullscreen();
+            }
+            catch {
+                document.documentElement.webkitRequestFullscreen();
+            }
+        }
+        else {
+            try {
+                document.exitFullscreen();
+            }
+            catch {
+                document.webkitExitFullscreen();
+            }
+        }
+    }
+});
+
 document.querySelectorAll("input").forEach(input => {
     input.addEventListener("input", updateURL);
 });
