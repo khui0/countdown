@@ -6,7 +6,7 @@
 
 html,
 body {
-    overflow: hidden;
+    overflow: auto;
     height: 100%;
 }
 
@@ -54,12 +54,8 @@ p {
 }
 
 a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+    color: var(--text-color);
+    text-decoration: underline 1px;
 }
 
 input,
