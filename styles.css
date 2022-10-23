@@ -1,0 +1,130 @@
+:root {
+    color-scheme: dark;
+    --text-color: #ffffff;
+    --background-color: #000000;
+}
+
+html,
+body {
+    overflow: hidden;
+    height: 100%;
+}
+
+html {
+    font: 200 20px "Montserrat", sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--text-color);
+    transition: box-shadow 100ms ease-in-out;
+}
+
+::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    font: inherit;
+    text-align: center;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input,
+textarea {
+    box-sizing: border-box;
+    resize: none;
+    margin: 0;
+    padding: 0.2em;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    color: inherit;
+    background-color: var(--background-color);
+    font: inherit;
+}
+
+input[type=color] {
+    width: 50px;
+}
+
+button {
+    margin: 0;
+    padding: 0.2em;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font: inherit;
+    transition: font-weight 100ms ease-in-out;
+}
+
+button:hover {
+    font-weight: 400;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.button-container>button {
+    flex: 1;
+}
+
+#countdown {
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 0 0 10px var(--accent-color), 0 0 30px var(--accent-color);
+}
+
+#countdown>h1 {
+    font: 50px "Montserrat", sans-serif;
+}
+
+#countdown>h2 {
+    font: 40px "Montserrat", sans-serif;
+}
+
+#create {
+    flex-direction: column;
+    gap: 5px;
+    width: min(100%, 600px);
+}
+
+body>div {
+    display: none;
+}
