@@ -47,7 +47,7 @@ else {
 
 // Returns object containing time between two dates
 function timeBetween(date) {
-    let target = new Date(date).getTime() + new Date().getTimezoneOffset() * 60000;
+    let target = new Date(date).getTime();
     let milliseconds = target - Date.now();
     let seconds = Math.floor(milliseconds / 1000);
     let minutes = Math.floor(seconds / 60);
