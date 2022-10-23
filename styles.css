@@ -121,6 +121,10 @@ button:hover {
     width: min(100%, 600px);
 }
 
+#create>h1 {
+    font-size: 25px;
+}
+
 .subtle {
     opacity: 0.5;
 }
