@@ -1,5 +1,6 @@
 import "./reset.css";
 import "./style.css";
+import "remixicon/fonts/remixicon.css";
 
 import pluralize from "pluralize";
 
@@ -9,9 +10,11 @@ const edit = params.has("edit");
 const data = {
     title: params.get("title") || "Untitled",
     date: params.get("date") || Date.now(),
-    color: params.get("color") || params.get("accent") || "white",
+    color: params.get("color") || params.get("accent") || "#ffffff",
     icon: params.get("icon") || "🥳",
 }
+
+updateColors();
 
 if (!edit) {
     showView("countdown");
@@ -37,6 +40,11 @@ function update() {
     ];
     const string = !time.passed ? `is in ${array.join(" ")}` : `was ${array.join(" ")} ago`;
     document.getElementById("time").textContent = string;
+}
+
+function updateColors() {
+    document.documentElement.style.setProperty("--text-color", data.color);
+    document.documentElement.style.setProperty("--background-color", getContrastYIQ(...hexToRgb(data.color)));
 }
 
 function timeUntil(date) {
@@ -66,4 +74,23 @@ function showView(name) {
         view.style.display = "none";
     });
     document.querySelector(`[data-view=${name}]`).style.removeProperty("display");
+}
+
+function getContrastYIQ(r, g, b) {
+    const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+    return (yiq >= 128) ? "black" : "white";
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + [r, g, b].map(x => {
+        const hex = x.toString(16)
+        return hex.length === 1 ? "0" + hex : hex
+    }).join("");
+}
+
+function hexToRgb(hex) {
+    return hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i
+        , (m, r, g, b) => '#' + r + r + g + g + b + b)
+        .substring(1).match(/.{2}/g)
+        .map(x => parseInt(x, 16));
 }
