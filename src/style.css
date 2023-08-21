@@ -1,6 +1,7 @@
 body {
+    height: 100%;
     padding: 1rem;
-    font-family: "Poppins", sans-serif;
+    font-family: "Figtree", sans-serif;
     color: white;
     background-color: black;
     line-height: 1.6;
@@ -16,11 +17,25 @@ h6 {
     line-height: 1.2;
 }
 
-#title {
-    font-size: 50px;
+[data-view] {
+    height: 100%;
 }
 
-[data-view="countdown"]>p {
-    font-size: 40px;
+[data-view="countdown"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+#title {
+    font-size: 60px;
     line-height: 1;
+}
+
+#time {
+    font-size: 30px;
+    line-height: 1.2;
 }

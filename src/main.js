@@ -29,10 +29,14 @@ else {
 
 function update() {
     const time = timeUntil(data.date);
-    document.getElementById("days").textContent = pluralize("day", time.days, true);
-    document.getElementById("hours").textContent = pluralize("hour", time.hours, true);
-    document.getElementById("minutes").textContent = pluralize("minute", time.minutes, true);
-    document.getElementById("seconds").textContent = pluralize("second", time.seconds, true);
+    const array = [
+        pluralize("day", time.days, true),
+        pluralize("hour", time.hours, true),
+        pluralize("minute", time.minutes, true),
+        pluralize("second", time.seconds, true),
+    ];
+    const string = !time.passed ? `is in ${array.join(" ")}` : `was ${array.join(" ")} ago`;
+    document.getElementById("time").textContent = string;
 }
 
 function timeUntil(date) {
@@ -62,3 +66,6 @@ function showView(name) {
     });
     document.querySelector(`[data-view=${name}]`).style.removeProperty("display");
 }
+
+console.log(new Date(decodeURIComponent("2022-12-03T00%3A00")).getTime());
+console.log(new Date(1670043600000).getTime());
