@@ -5,7 +5,7 @@ import pluralize from "pluralize";
 
 // Get URL parameters
 const params = new URLSearchParams(window.location.search);
-const view = params.has("view");
+const edit = params.has("edit");
 const data = {
     title: params.get("title") || "Untitled",
     date: params.get("date") || Date.now(),
@@ -13,7 +13,7 @@ const data = {
     icon: params.get("icon") || "🥳",
 }
 
-if (view) {
+if (!edit) {
     showView("countdown");
     // Set title
     document.title = data.title;
