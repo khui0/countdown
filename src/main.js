@@ -16,7 +16,23 @@ const data = {
 
 updateColors();
 
-if (!edit) {
+document.getElementById("edit").href = window.location.href + "&edit";
+
+if (params.size == 0) {
+    showView("edit");
+    // Set title
+    document.title = "Create a countdown";
+    // Set icon
+    document.head.insertAdjacentHTML("beforeend", generateIconHTML("🗓️", 85));
+}
+else if (edit) {
+    showView("edit");
+    // Set title
+    document.title = "Editing " + data.title;
+    // Set icon
+    document.head.insertAdjacentHTML("beforeend", generateIconHTML("✏️", 85));
+}
+else {
     showView("countdown");
     // Set title
     document.title = data.title;
@@ -24,10 +40,6 @@ if (!edit) {
     // Set icon
     document.head.insertAdjacentHTML("beforeend", generateIconHTML(data.icon, 85));
     setInterval(update, 100);
-}
-else {
-    showView("edit");
-
 }
 
 function update() {
