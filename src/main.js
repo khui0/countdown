@@ -9,7 +9,7 @@ const view = params.has("view");
 const data = {
     title: params.get("title") || "Untitled",
     date: params.get("date") || Date.now(),
-    color: params.get("color") || "white",
+    color: params.get("color") || params.get("accent") || "white",
     icon: params.get("icon") || "🥳",
 }
 
@@ -40,6 +40,7 @@ function update() {
 }
 
 function timeUntil(date) {
+    date = Date.parse(date) || date;
     const milliseconds = date - Date.now();
     const seconds = Math.floor(Math.abs(milliseconds / 1000));
     const minutes = Math.floor(Math.abs(seconds / 60));
