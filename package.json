@@ -13,6 +13,7 @@
     "vite-plugin-webfont-dl": "^3.7.6"
   },
   "dependencies": {
+    "pluralize": "^8.0.0",
     "remixicon": "^3.4.0"
   }
 }
