@@ -66,6 +66,3 @@ function showView(name) {
     });
     document.querySelector(`[data-view=${name}]`).style.removeProperty("display");
 }
-
-console.log(new Date(decodeURIComponent("2022-12-03T00%3A00")).getTime());
-console.log(new Date(1670043600000).getTime());
